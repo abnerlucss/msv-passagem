@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,14 +18,11 @@ public class CadPassagemDTO {
 
     private String destino;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dataEmbarque;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss" , timezone = "America/Sao_Paulo")
+    private LocalDateTime dataHoraEmbarque;
 
-    @JsonFormat(pattern = "HH:mm:ss", timezone = "America/Sao_Paulo")
-    private Date horaEmbarque;
-
-    @JsonFormat(pattern = "HH:mm:ss", timezone = "America/Sao_Paulo")
-    private Date horaDesembarque;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss" , timezone = "America/Sao_Paulo")
+    private LocalDateTime dataHoraDesembarque;
 
     private int numeroAssento;
 

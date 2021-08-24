@@ -20,8 +20,7 @@ public class PassagemCompradaMapper {
                 passageiro.getCpf(),
                 passagem.getCompanhiaAerea().getCodigo(),
                 passagem.getClasse().getNome(),
-                passagem.getDataEmbarque(),
-                passagem.getHoraEmbarque()
+                passagem.getDataHoraEmbarque()
         );
 
         return new PassagemCompradaDTO(

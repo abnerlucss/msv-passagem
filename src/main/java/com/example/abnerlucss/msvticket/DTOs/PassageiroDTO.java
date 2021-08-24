@@ -33,7 +33,7 @@ public class PassageiroDTO {
 
     private String telefone;
 
-    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Sao_Paulo")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Sao_Paulo")
     private Date dataNascimento;
 
     public PassageiroDTO(String nome, String rg, String cpf, String email, String telefone, Date dataNascimento) {

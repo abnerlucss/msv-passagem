@@ -1,9 +1,6 @@
 package com.example.abnerlucss.msvticket.controllers;
 
-import com.example.abnerlucss.msvticket.DTOs.CadPassagemDTO;
-import com.example.abnerlucss.msvticket.DTOs.DadosCompraDTO;
-import com.example.abnerlucss.msvticket.DTOs.PassagemCompradaDTO;
-import com.example.abnerlucss.msvticket.DTOs.PassagemDTO;
+import com.example.abnerlucss.msvticket.DTOs.*;
 import com.example.abnerlucss.msvticket.exceptions.CreateException;
 import com.example.abnerlucss.msvticket.exceptions.NotFoundException;
 import com.example.abnerlucss.msvticket.services.PassagemService;
@@ -23,7 +20,7 @@ public class PassagemController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PassagemDTO cadastrarPassagem(@RequestBody CadPassagemDTO body) throws NotFoundException, CreateException {
+    public List<PassagemDTO> cadastrarPassagem(@RequestBody VooDTO body) throws NotFoundException, CreateException {
         return passagemService.cadastrarPassagem(body);
     }
 

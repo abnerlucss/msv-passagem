@@ -11,8 +11,7 @@ public class EmbarqueMapper {
 
     public EmbarqueDTO converteEntidadeParaDTO(PassagemCompradaDTO passagemCompradaDTO, Passagem passagem, Passageiro passageiro){
         return new EmbarqueDTO(
-                passagem.getDataEmbarque(),
-                passagem.getHoraEmbarque(),
+                passagem.getDataHoraEmbarque(),
                 passagem.getClasse().getNome(),
                 passagemCompradaDTO.getCodigoLocalizador(),
                 passagem.getCompanhiaAerea().getIdentificadorComp(),
