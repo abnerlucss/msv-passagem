@@ -1,0 +1,12 @@
+spring:
+  profiles: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: teste123
+
+server:
+  port: 8081
