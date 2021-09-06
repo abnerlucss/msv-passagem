@@ -24,9 +24,6 @@ public class Passageiro {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "rg", unique = true)
-    private String rg;
-
     @Column(name = "cpf", unique = true)
     private String cpf;
 
@@ -38,4 +35,7 @@ public class Passageiro {
 
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+
+    @Column(name = "senha")
+    private String senha;
 }

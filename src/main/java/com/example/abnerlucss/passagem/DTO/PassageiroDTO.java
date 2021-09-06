@@ -23,9 +23,6 @@ public class PassageiroDTO {
     @Length(max = 150)
     private String nome;
 
-    @Length(max = 9)
-    private String rg;
-
     @CPF
     private String cpf;
 
@@ -37,4 +34,15 @@ public class PassageiroDTO {
     @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Sao_Paulo")
     private LocalDate dataNascimento;
 
+    private String senha;
+
+
+    public PassageiroDTO(Integer id, String nome, String cpf, String email, String telefone, LocalDate dataNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+    }
 }

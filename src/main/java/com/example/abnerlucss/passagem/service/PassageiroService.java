@@ -1,5 +1,6 @@
 package com.example.abnerlucss.passagem.service;
 
+import com.example.abnerlucss.passagem.DTO.LoginDTO;
 import com.example.abnerlucss.passagem.DTO.PassageiroDTO;
 import com.example.abnerlucss.passagem.exception.*;
 import com.example.abnerlucss.passagem.mapper.PassageiroMapper;
@@ -122,5 +123,14 @@ public class PassageiroService {
         } catch (Exception e) {
             throw new UpdateException(("Erro ao atualizar passageiro: " + cpf), e.getCause());
         }
+    }
+
+    public boolean loginPassageiro(LoginDTO body) {
+        Passageiro passageiro = passageiroRepository.loginPassageiro(body.getCpf(), body.getSenha()).orElse(null);
+
+        if (passageiro == null)
+            return false;
+        return true;
+
     }
 }

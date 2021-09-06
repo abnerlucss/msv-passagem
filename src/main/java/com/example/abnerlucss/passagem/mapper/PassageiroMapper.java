@@ -13,11 +13,11 @@ public class PassageiroMapper {
         return new Passageiro(
                 passageiroDTO.getId(),
                 passageiroDTO.getNome(),
-                passageiroDTO.getRg(),
                 passageiroDTO.getCpf(),
                 passageiroDTO.getEmail(),
                 passageiroDTO.getTelefone(),
-                passageiroDTO.getDataNascimento()
+                passageiroDTO.getDataNascimento(),
+                passageiroDTO.getSenha()
         );
     }
 
@@ -25,7 +25,6 @@ public class PassageiroMapper {
         return passageiroList.stream().map(passageiro -> PassageiroDTO.builder()
                 .id(passageiro.getIdPassageiro())
                 .nome(passageiro.getNome())
-                .rg(passageiro.getRg())
                 .cpf(passageiro.getCpf())
                 .email(passageiro.getEmail())
                 .telefone(passageiro.getTelefone())
@@ -39,11 +38,11 @@ public class PassageiroMapper {
         return new PassageiroDTO(
                 passageiro.getIdPassageiro(),
                 passageiro.getNome(),
-                passageiro.getRg(),
                 passageiro.getCpf(),
                 passageiro.getEmail(),
                 passageiro.getTelefone(),
-                passageiro.getDataNascimento()
+                passageiro.getDataNascimento(),
+                passageiro.getSenha()
         );
     }
 }

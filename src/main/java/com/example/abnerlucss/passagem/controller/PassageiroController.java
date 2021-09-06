@@ -1,5 +1,6 @@
 package com.example.abnerlucss.passagem.controller;
 
+import com.example.abnerlucss.passagem.DTO.LoginDTO;
 import com.example.abnerlucss.passagem.DTO.PassageiroDTO;
 import com.example.abnerlucss.passagem.exception.*;
 import com.example.abnerlucss.passagem.service.PassageiroService;
@@ -33,7 +34,7 @@ public class PassageiroController {
         return passageiroService.listarPassageiros();
     }
 
-    
+
     @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PassageiroDTO buscarPassageiroPorId(@PathVariable Integer id) throws NotFoundException, ConvertException {
@@ -70,5 +71,10 @@ public class PassageiroController {
         return passageiroService.excluirPassageiroPorCpf(cpf);
     }
 
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    public boolean loginPassageiro(@RequestBody LoginDTO body){
+        return passageiroService.loginPassageiro(body);
+    }
 
 }
