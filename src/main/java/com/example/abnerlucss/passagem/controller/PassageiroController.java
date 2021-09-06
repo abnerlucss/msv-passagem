@@ -73,7 +73,7 @@ public class PassageiroController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
-    public boolean loginPassageiro(@RequestBody LoginDTO body){
+    public Integer loginPassageiro(@RequestBody LoginDTO body) throws NotFoundException {
         return passageiroService.loginPassageiro(body);
     }
 

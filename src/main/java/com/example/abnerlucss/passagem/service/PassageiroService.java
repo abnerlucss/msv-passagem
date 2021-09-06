@@ -125,12 +125,12 @@ public class PassageiroService {
         }
     }
 
-    public boolean loginPassageiro(LoginDTO body) {
+    public Integer loginPassageiro(LoginDTO body) throws NotFoundException {
         Passageiro passageiro = passageiroRepository.loginPassageiro(body.getCpf(), body.getSenha()).orElse(null);
 
-        if (passageiro == null)
-            return false;
-        return true;
+        if (passageiro != null)
+            return passageiro.hashCode();
+        throw new NotFoundException("Passageiro não encontrado");
 
     }
 }
