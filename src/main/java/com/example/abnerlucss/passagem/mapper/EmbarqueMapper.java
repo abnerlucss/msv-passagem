@@ -15,7 +15,10 @@ public class EmbarqueMapper {
                 passagemCompradaDTO.getCodigoLocalizador(),
                 passagem.getCompanhiaAerea().getIdentificadorComp(),
                 passagem.getNumeroAssento(),
-                passagem.getDestino()
+                passagem.getDestino(),
+                passagem.getPartida(),
+                passagem.getAeroporto(),
+                passagem.getIdVoo()
         );
     }
 

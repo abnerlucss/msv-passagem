@@ -25,7 +25,7 @@ public class PassageiroController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Integer cadastrarPassageiro(@RequestBody @Valid PassageiroDTO body) throws CreateException {
-        return passageiroService.cadastrarPassageiro(body).hashCode();
+        return passageiroService.cadastrarPassageiro(body).getId();
     }
 
     @GetMapping

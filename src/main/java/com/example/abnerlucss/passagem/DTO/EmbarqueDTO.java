@@ -13,10 +13,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class EmbarqueDTO {
     private LocalDateTime dataHoraEmbarque;
+
     private String classe;
+
     private String codigoLocalizador;
+
     private String identificadorComp;
+
     private Integer numeroAssento;
+
     private String destino;
 
+    private String partida;
+
+    private String aeroporto;
+
+    private Integer idVoo;
 }

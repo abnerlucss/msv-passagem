@@ -48,7 +48,16 @@ public class Passagem {
     @JoinColumn(name = "id_companhia_aerea")
     private CompanhiaAerea companhiaAerea;
 
-    public Passagem(String aeroporto, String destino, LocalDateTime dataHoraEmbarque, LocalDateTime dataHoraDesembarque, int numeroAssento, Passageiro passageiro, Classe classe, CompanhiaAerea companhiaAerea) {
+    @Column(name = "preco")
+    private Double preco;
+
+    @Column(name = "partida")
+    private String partida;
+
+    @Column(name = "id_voo")
+    private Integer idVoo;
+
+    public Passagem(String aeroporto, String destino, LocalDateTime dataHoraEmbarque, LocalDateTime dataHoraDesembarque, int numeroAssento, Passageiro passageiro, Classe classe, CompanhiaAerea companhiaAerea, Double preco, String partida, Integer idVoo) {
         this.aeroporto = aeroporto;
         this.destino = destino;
         this.dataHoraEmbarque = dataHoraEmbarque;
@@ -57,6 +66,8 @@ public class Passagem {
         this.passageiro = passageiro;
         this.classe = classe;
         this.companhiaAerea = companhiaAerea;
+        this.preco = preco;
+        this.partida = partida;
+        this.idVoo = idVoo;
     }
-
 }

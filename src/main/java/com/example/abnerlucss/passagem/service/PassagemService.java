@@ -81,7 +81,7 @@ public class PassagemService {
     }
 
     public List<PassagemDTO> cadastrarPassagem(VooDTO body) throws CreateException {
-        try{
+        try {
             List<Passagem> passagemLista = new ArrayList<>();
 
             Integer numAssento = 1;
@@ -96,7 +96,10 @@ public class PassagemService {
                                 numAssento,
                                 null,
                                 classeRepository.findByNome("Econômica"),
-                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia())
+                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia()),
+                                body.getPrecoEconomica(),
+                                body.getPartida(),
+                                body.getIdVoo()
                         )
                 ));
                 numAssento++;
@@ -112,7 +115,10 @@ public class PassagemService {
                                 numAssento,
                                 null,
                                 classeRepository.findByNome("Executiva"),
-                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia())
+                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia()),
+                                body.getPrecoExecutiva(),
+                                body.getPartida(),
+                                body.getIdVoo()
                         )
                 ));
                 numAssento++;
@@ -128,7 +134,10 @@ public class PassagemService {
                                 numAssento,
                                 null,
                                 classeRepository.findByNome("Primeira Classe"),
-                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia())
+                                companhiaAereaRepository.findByIdentificadorComp(body.getIdentificadorCompanhia()),
+                                body.getPrecoPrimeiraClasse(),
+                                body.getPartida(),
+                                body.getIdVoo()
                         )
                 ));
                 numAssento++;
@@ -136,9 +145,8 @@ public class PassagemService {
 
             return passagemMapper.converterListaEntidadeParaDTO(passagemLista);
 
-        }
-        catch (Exception e){
-            throw new CreateException("Erro ao cadastrar as passagens",e.getCause());
+        } catch (Exception e) {
+            throw new CreateException("Erro ao cadastrar as passagens", e.getCause());
         }
     }
 }

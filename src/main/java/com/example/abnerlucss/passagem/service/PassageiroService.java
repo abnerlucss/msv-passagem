@@ -129,8 +129,8 @@ public class PassageiroService {
         Passageiro passageiro = passageiroRepository.loginPassageiro(body.getCpf(), body.getSenha()).orElse(null);
 
         if (passageiro != null)
-            return passageiro.hashCode();
-        throw new NotFoundException("Passageiro não encontrado");
+            return passageiro.getIdPassageiro();
+        throw new NotFoundException("Cpf e/ou senha inválido(s)");
 
     }
 }

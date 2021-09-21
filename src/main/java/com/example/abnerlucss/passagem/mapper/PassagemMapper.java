@@ -14,13 +14,17 @@ public class PassagemMapper {
 
         return passagens.stream().map(passagem -> new PassagemDTO(
                 passagem.getIdPassagem(),
+                passagem.getPartida(),
                 passagem.getAeroporto(),
                 passagem.getDestino(),
                 passagem.getDataHoraEmbarque(),
                 passagem.getDataHoraDesembarque(),
                 passagem.getNumeroAssento(),
                 passagem.getClasse().getNome(),
-                passagem.getCompanhiaAerea().getNome()
+                passagem.getCompanhiaAerea().getNome(),
+                passagem.getPreco(),
+                passagem.getIdVoo()
+
         )).collect(Collectors.toList());
     }
 }
