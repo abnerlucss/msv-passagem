@@ -2,6 +2,7 @@ package com.example.abnerlucss.passagem.controller;
 
 import com.example.abnerlucss.passagem.DTO.*;
 import com.example.abnerlucss.passagem.exception.CreateException;
+import com.example.abnerlucss.passagem.exception.ListException;
 import com.example.abnerlucss.passagem.exception.NotFoundException;
 import com.example.abnerlucss.passagem.service.PassagemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +37,27 @@ public class PassagemController {
         return passagemService.listarPassagensDisponiveis();
     }
 
+    @GetMapping("/idVoo/{idVoo}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PassagemDTO> listarPassagensPorIdVoo(@PathVariable Integer idVoo) throws ListException {
+        return passagemService.listarPassagensPorIdVoo(idVoo);
+    }
+
+    @GetMapping("/disponiveis/idVoo/{idVoo}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PassagemDTO> listarPassagensDisponiveisPorIdVoo(@PathVariable Integer idVoo) throws ListException {
+        return passagemService.listarPassagensDisponiveisPorIdVoo(idVoo);
+    }
+
+    @GetMapping("/indisponiveis/idVoo/{idVoo}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PassagemDTO> listarPassagensIndisponiveisPorIdVoo(@PathVariable Integer idVoo) throws ListException {
+        return passagemService.listarPassagensIndisponiveisPorIdVoo(idVoo);
+    }
+
+    @GetMapping("/indisponiveis")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PassagemDTO> listarPassagensIndisponiveis() throws ListException {
+        return passagemService.listarPassagensIndisponiveis();
+    }
 }

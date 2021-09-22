@@ -2,6 +2,7 @@ package com.example.abnerlucss.passagem.service;
 
 import com.example.abnerlucss.passagem.DTO.*;
 import com.example.abnerlucss.passagem.exception.CreateException;
+import com.example.abnerlucss.passagem.exception.ListException;
 import com.example.abnerlucss.passagem.exception.NotFoundException;
 import com.example.abnerlucss.passagem.mapper.EmbarqueMapper;
 import com.example.abnerlucss.passagem.mapper.PassagemCompradaMapper;
@@ -147,6 +148,43 @@ public class PassagemService {
 
         } catch (Exception e) {
             throw new CreateException("Erro ao cadastrar as passagens", e.getCause());
+        }
+    }
+
+    public List<PassagemDTO> listarPassagensPorIdVoo(Integer idVoo) throws ListException {
+        try {
+            return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensDisponiveisByIdVoo(idVoo));
+        }
+        catch (Exception e){
+            throw new ListException("Erro ao listar passagens onde o Id do voo é " + idVoo);
+        }
+    }
+
+    public List<PassagemDTO> listarPassagensDisponiveisPorIdVoo(Integer idVoo) throws ListException {
+        try {
+            return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensDisponiveisPorVoo(idVoo));
+
+        }
+        catch (Exception e){
+            throw new ListException("Falha ao listar passagens disponíveis para o voo " + idVoo);
+        }
+    }
+
+    public List<PassagemDTO> listarPassagensIndisponiveisPorIdVoo(Integer idVoo) throws ListException {
+        try{
+            return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensIndisponiveis(idVoo));
+        }
+        catch (Exception e){
+            throw new ListException("Falha ao listar passagens indisponíveis para o voo " + idVoo);
+        }
+    }
+
+    public List<PassagemDTO> listarPassagensIndisponiveis() throws ListException {
+        try{
+            return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensIndisponiveis());
+        }
+        catch (Exception e){
+            throw new ListException("Falha ao listar passagens indisponíveis");
         }
     }
 }
