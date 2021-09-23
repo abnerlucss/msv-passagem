@@ -20,10 +20,8 @@ public class VooDTO {
 
     private String aeroporto;
 
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Sao_Paulo")
     private LocalDateTime dataHoraEmbarque;
 
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Sao_Paulo")
     private LocalDateTime dataHoraDesembarque;
 
     private String destino;
