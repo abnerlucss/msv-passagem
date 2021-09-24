@@ -20,6 +20,7 @@ public class PassagemMapper {
                 passagem.getDataHoraEmbarque(),
                 passagem.getDataHoraDesembarque(),
                 passagem.getNumeroAssento(),
+                passagem.getPassageiro().getIdPassageiro(),
                 passagem.getClasse().getNome(),
                 passagem.getCompanhiaAerea().getNome(),
                 passagem.getPreco(),

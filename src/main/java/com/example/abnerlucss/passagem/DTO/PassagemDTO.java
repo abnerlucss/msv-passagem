@@ -25,7 +25,9 @@ public class PassagemDTO {
 
     private LocalDateTime dataHoraDesembarque;
 
-    private int numeroAssento;
+    private Integer numeroAssento;
+
+    private Integer idPassageiro;
 
     private String nomeClasse;
 
@@ -35,7 +37,7 @@ public class PassagemDTO {
 
     private Integer idVoo;
 
-    public PassagemDTO(Integer idPassagem, String partida, String aeroporto, String destino, LocalDateTime dataHoraEmbarque, LocalDateTime dataHoraDesembarque, int numeroAssento, String nomeClasse, String nomeCompanhia, Double preco) {
+    public PassagemDTO(Integer idPassagem, String partida, String aeroporto, String destino, LocalDateTime dataHoraEmbarque, LocalDateTime dataHoraDesembarque, Integer numeroAssento, String nomeClasse, String nomeCompanhia, Double preco) {
         this.idPassagem = idPassagem;
         this.partida = partida;
         this.aeroporto = aeroporto;
@@ -47,4 +49,5 @@ public class PassagemDTO {
         this.nomeCompanhia = nomeCompanhia;
         this.preco = preco;
     }
+
 }
