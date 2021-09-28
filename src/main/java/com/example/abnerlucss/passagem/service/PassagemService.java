@@ -154,8 +154,7 @@ public class PassagemService {
     public List<PassagemDTO> listarPassagensPorIdVoo(Integer idVoo) throws ListException {
         try {
             return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensDisponiveisByIdVoo(idVoo));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new ListException("Erro ao listar passagens onde o Id do voo é " + idVoo);
         }
     }
@@ -164,26 +163,31 @@ public class PassagemService {
         try {
             return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensDisponiveisPorVoo(idVoo));
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new ListException("Falha ao listar passagens disponíveis para o voo " + idVoo);
         }
     }
 
     public List<PassagemDTO> listarPassagensIndisponiveisPorIdVoo(Integer idVoo) throws ListException {
-        try{
+        try {
             return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensIndisponiveis(idVoo));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new ListException("Falha ao listar passagens indisponíveis para o voo " + idVoo);
         }
     }
 
     public List<PassagemDTO> listarPassagensIndisponiveis() throws ListException {
-        try{
+        try {
             return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.findAllPassagensIndisponiveis());
+        } catch (Exception e) {
+            throw new ListException("Falha ao listar passagens indisponíveis");
         }
-        catch (Exception e){
+    }
+
+    public List<PassagemDTO> listarPassagensPorIdVooClasse(Integer idVoo, String classe) throws ListException {
+        try {
+            return passagemMapper.converterListaEntidadeParaDTO(passagemRepository.listarPassagensPorIdVooClasse(idVoo, classe));
+        } catch (Exception e) {
             throw new ListException("Falha ao listar passagens indisponíveis");
         }
     }

@@ -26,6 +26,7 @@ public class PassagemMapper {
                 passagem.getPreco(),
                 passagem.getIdVoo()
 
-        )).collect(Collectors.toList());
+        )
+        ).collect(Collectors.toList());
     }
 }

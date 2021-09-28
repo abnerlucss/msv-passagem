@@ -1,6 +1,9 @@
 package com.example.abnerlucss.passagem.controller;
 
-import com.example.abnerlucss.passagem.DTO.*;
+import com.example.abnerlucss.passagem.DTO.DadosCompraDTO;
+import com.example.abnerlucss.passagem.DTO.PassagemCompradaDTO;
+import com.example.abnerlucss.passagem.DTO.PassagemDTO;
+import com.example.abnerlucss.passagem.DTO.VooDTO;
 import com.example.abnerlucss.passagem.exception.CreateException;
 import com.example.abnerlucss.passagem.exception.ListException;
 import com.example.abnerlucss.passagem.exception.NotFoundException;
@@ -33,7 +36,7 @@ public class PassagemController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<PassagemDTO> listarPassagensDisponiveis(){
+    public List<PassagemDTO> listarPassagensDisponiveis() {
         return passagemService.listarPassagensDisponiveis();
     }
 
@@ -49,11 +52,18 @@ public class PassagemController {
         return passagemService.listarPassagensDisponiveisPorIdVoo(idVoo);
     }
 
+    @GetMapping("/idVoo/{idVoo}/{classe}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PassagemDTO> listarPassagensPorIdVooClasse(@PathVariable Integer idVoo, @PathVariable String classe) throws ListException {
+        return passagemService.listarPassagensPorIdVooClasse(idVoo, classe);
+    }
+
     @GetMapping("/indisponiveis/idVoo/{idVoo}")
     @ResponseStatus(HttpStatus.OK)
     public List<PassagemDTO> listarPassagensIndisponiveisPorIdVoo(@PathVariable Integer idVoo) throws ListException {
         return passagemService.listarPassagensIndisponiveisPorIdVoo(idVoo);
     }
+
 
     @GetMapping("/indisponiveis")
     @ResponseStatus(HttpStatus.OK)

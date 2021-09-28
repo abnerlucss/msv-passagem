@@ -22,5 +22,8 @@ public interface PassagemRepository extends JpaRepository<Passagem, Integer> {
     @Query(value = "select * from passagem p where p.id_passageiro isnull and p.id_voo = :idVoo", nativeQuery = true)
     List<Passagem> findAllPassagensDisponiveisPorVoo(@Param("idVoo") Integer idVoo);
 
+    @Query(value = "select p.* from passagem p join classe c on p.id_classe = c.id_classe where id_voo = :idVoo and c.nome = :classe", nativeQuery = true)
+    List<Passagem> listarPassagensPorIdVooClasse(@Param("idVoo") Integer idVoo, @Param("classe") String classe);
+
     List<Passagem> findAllPassagensDisponiveisByIdVoo(Integer idVoo);
 }
