@@ -42,7 +42,7 @@ public class PassageiroMapper {
                 passageiro.getEmail(),
                 passageiro.getTelefone(),
                 passageiro.getDataNascimento(),
-                passageiro.getSenha()
+                null
         );
     }
 }
