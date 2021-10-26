@@ -5,15 +5,13 @@ import com.example.abnerlucss.passagem.exception.ListException;
 import com.example.abnerlucss.passagem.service.CompanhiaAereaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/v1/companhia")
+@CrossOrigin(origins = "*")
 public class CompanhiaAereaController {
 
     @Autowired

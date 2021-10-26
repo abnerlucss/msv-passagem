@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/passagem")
+@CrossOrigin(origins = "*")
 @SuppressWarnings("unused")
 public class PassagemController {
 

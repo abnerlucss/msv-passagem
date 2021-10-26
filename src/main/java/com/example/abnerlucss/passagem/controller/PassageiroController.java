@@ -9,14 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @Validated
 @SuppressWarnings("unused")
 @RequestMapping("/v1/passageiro")
+@CrossOrigin(origins = "*")
 public class PassageiroController {
 
     @Autowired
@@ -24,7 +23,7 @@ public class PassageiroController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Integer cadastrarPassageiro(@RequestBody @Valid PassageiroDTO body) throws CreateException {
+    public Integer cadastrarPassageiro(@RequestBody PassageiroDTO body) throws CreateException {
         return passageiroService.cadastrarPassageiro(body).getId();
     }
 
