@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmbarqueDTO {
+    private Integer idEmbarque;
+
     private LocalDateTime dataHoraEmbarque;
 
     private String classe;
