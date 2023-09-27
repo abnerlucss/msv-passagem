@@ -4,9 +4,9 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:postgresql://ec2-18-214-238-28.compute-1.amazonaws.com:5432/d412sora5ha26g
-    username: qpqeyttubkmdoy
-    password: 457f711f262c2404d440abc60db29607417fca92780d14bba68208b3e42ffffd
+    url: jdbc:postgresql://dpg-cka3adldrqvc73at6mpg-a.oregon-postgres.render.com:5432/developmentdb_rsm5
+    username: abnerlucas
+    password: ZCd7HiL6KQrSQklr3e35NerzGNxb2u4a
 
 server:
-  port: ${PORT:80}
+  port: 8080
