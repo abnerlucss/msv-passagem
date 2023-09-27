@@ -9,4 +9,4 @@ spring:
     password: ZCd7HiL6KQrSQklr3e35NerzGNxb2u4a
 
 server:
-  port: 8080
+  port: 8081
